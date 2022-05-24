@@ -12,7 +12,7 @@ const Navbar = () => {
     </>
     return (
         <div>
-            <div className="navbar bg-base-100 w-full xl:w-4/5 mx-auto">
+            <div className="navbar bg-base-100">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex="0" className="btn btn-ghost lg:hidden">
@@ -22,14 +22,18 @@ const Navbar = () => {
                             {menuItems}
                         </ul>
                     </div>
-                    <Link to='/' className="text-sm md:text-xl flex justify-center items-center font-bold"><img className='w-9 md:w-20' src={logo} alt="website-logo" /><h3>Bicycle Manufacturer</h3></Link>
+                    <Link to='/' className="text-sm md:text-xl flex justify-center items-center font-bold"><img className='w-9 md:w-20' src={logo} alt="website-logo" /><h3>Elite Manufacturer</h3></Link>
                 </div>
-
+                <div className="navbar-center hidden lg:flex">
+                    <ul className="menu menu-horizontal p-0">
+                        {menuItems}
+                    </ul>
+                </div>
                 <div className="navbar-end">
-                    <div className="navbar-center hidden lg:flex">
-                        <ul className="menu menu-horizontal p-0">
-                            {menuItems}
-                        </ul>
+                    <div className="avatar">
+                        <div className="w-10 rounded-full mr-10">
+                            <img src="https://api.lorem.space/image/face?hash=77703" alt="Tailwind-CSS-Avatar-component" />
+                        </div>
                     </div>
                 </div>
             </div>
