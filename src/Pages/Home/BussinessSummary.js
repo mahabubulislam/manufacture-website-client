@@ -6,7 +6,8 @@ import { AiFillAccountBook } from "react-icons/ai";
 const BussinessSummary = () => {
     return (
         <section className='p-10 mt-10'>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 shadow-lg">
+            <h1 className='text-4xl text-center text-secondary font-bold mb-10'>Business Summary</h1>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 shadow-lg">
                 <div className='h-40 hover:bg-accent hover:text-white duration-300 ease-in-out border-l-2 p-5 rounded-md text-center font-bold'>
                     <FaPeopleCarry className='block text-6xl mx-auto text-primary'></FaPeopleCarry>
                     <h3 className='text-3xl'>50K+</h3>
