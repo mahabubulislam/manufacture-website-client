@@ -3,7 +3,8 @@ import Parts from './Parts';
 import Banner from './Banner';
 import BussinessSummary from './BussinessSummary';
 import Discount from './Discount';
-
+import FAQ from './FAQ';
+import 'react-accessible-accordion/dist/fancy-example.css';
 const Home = () => {
     return (
         <div>
@@ -11,6 +12,7 @@ const Home = () => {
             <Parts/>
             <Discount/>
             <BussinessSummary/>
+            <FAQ/>
         </div>
     );
 };
