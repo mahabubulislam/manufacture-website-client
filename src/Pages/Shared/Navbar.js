@@ -1,7 +1,12 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.png'
+import auth from '../../firebase.init';
+import Loading from './Loading';
 const Navbar = () => {
+    const [user, loading] = useAuthState(auth)
+    
     const menuItems = <>
         <li><Link to='/home'>Home</Link></li>
         <li><Link to='/shop'>Shop</Link></li>
@@ -9,8 +14,10 @@ const Navbar = () => {
         <li><Link to='/contact'>Contact</Link></li>
         <li><Link to='/portfolio'>Portfolio</Link></li>
         <li><Link to='/blogs'>Blogs</Link></li>
-        <li><Link to='/login'>Login</Link></li>
     </>
+    if(loading){
+        return <Loading/>
+    }
     return (
         <div>
             <div className="navbar bg-base-100">
@@ -31,14 +38,30 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <div className="avatar">
-                        <div className="w-10 rounded-full mr-10">
-                            <img src="https://api.lorem.space/image/face?hash=77703" alt="Tailwind-CSS-Avatar-component" />
-                        </div>
+                    {
+                        user? 
+                        <div className="dropdown dropdown-end">
+                        <label tabindex="0" className="btn btn-ghost btn-circle avatar mr-3 lg:mr-10">
+                            <div className="w-10 rounded-full ">
+                                <img src={user.photoURL || 'https://api.lorem.space/image/face?hash=33791'} alt='' />
+                            </div>
+                        </label>
+                        <ul tabindex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-200 rounded-box w-52">
+                            <li>
+                                <Link to='my-profile' className="justify-between">
+                                    Profile
+                                </Link>
+                            </li>
+                            <li><Link to='Dashboard'>Dashboard</Link></li>
+                            <li><button>Logout</button></li>
+                        </ul>
                     </div>
+                    :
+                    <Link to='/login'>Login</Link>
+                    }
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
