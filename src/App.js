@@ -17,7 +17,6 @@ function App() {
         viewBox="0 0 24 24"
         style={{background:'#20AFB3'}}
         component={<GoArrowUp className="block w-10 text-white text-3xl"></GoArrowUp>}
-       
       />
     </div>
   );

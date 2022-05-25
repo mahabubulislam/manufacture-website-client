@@ -5,6 +5,7 @@ import BussinessSummary from './BussinessSummary';
 import Discount from './Discount';
 import FAQ from './FAQ';
 import 'react-accessible-accordion/dist/fancy-example.css';
+import Footer from '../Shared/Footer';
 const Home = () => {
     return (
         <div>
@@ -13,6 +14,7 @@ const Home = () => {
             <Discount/>
             <BussinessSummary/>
             <FAQ/>
+            <Footer/>
         </div>
     );
 };

@@ -10,9 +10,10 @@ import faq from '../../assets/faq.png';
 const FAQ = () => {
     return (
         <section>
+            <h1 className='text-4xl text-center'>Frequently Asked Questions </h1>
             <div className="hero min-h-screen">
-                <div className="hero-content flex-col lg:flex-row">
-                    <img src={faq} className="max-w-sm rounded-lg shadow-2xl" alt='faq' />
+                <div className="hero-content flex-col lg:flex-row-reverse">
+                    <img src={faq} className="max-w-sm mask mask-triangle" alt='faq' />
                     <div className='max-w-md'>
                         <Accordion>
                             <AccordionItem>
