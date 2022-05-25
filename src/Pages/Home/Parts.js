@@ -16,6 +16,7 @@ const Parts = () => {
                     parts?.slice(-3).map(part => <Part part={part} key={part._id} refetch={refetch}></Part>)
                 }
             </div>
+            <button className='btn btn-secondary block mx-auto mt-10'>Show More</button>
         </section>
     );
 };
