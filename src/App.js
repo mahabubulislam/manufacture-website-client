@@ -4,6 +4,7 @@ import Home from "./Pages/Home/Home";
 import Navbar from "./Pages/Shared/Navbar";
 import { GoArrowUp } from 'react-icons/go';
 import Login from "./Pages/Login/Login";
+import SignUp from "./Pages/Login/SignUp";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/home" element={<Home />}></Route>
         <Route path="/login" element={<Login />}></Route>
+        <Route path="/signup" element={<SignUp />}></Route>
       </Routes>
       <ScrollToTop
         smooth
