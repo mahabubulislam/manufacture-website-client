@@ -9,6 +9,8 @@ import RequireAuth from "./Pages/Login/RequireAuth";
 import Purchase from "./Pages/Purchase/Purchase";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import MyProfile from "./Pages/Dashboard/MyProfile";
+import AddReview from "./Pages/Dashboard/AddReview";
+import MyOrders from "./Pages/Dashboard/MyOrders";
 
 function App() {
   return (
@@ -20,7 +22,10 @@ function App() {
         <Route path="/signup" element={<SignUp />}></Route>
         <Route path="/purchase/:id" element={<RequireAuth><Purchase/></RequireAuth>}></Route>
         <Route path="/dashboard" element={<RequireAuth><Dashboard/></RequireAuth>}>
-          <Route index element={<MyProfile/>}></Route>
+          <Route index element={<MyOrders/>}></Route>
+          <Route path="my-profile" element={<MyProfile/>}></Route>
+          <Route path="my-orders" element={<MyOrders/>}></Route>
+          <Route path="add-review" element={<AddReview/>}></Route>
         </Route>
       </Routes>
       <ScrollToTop

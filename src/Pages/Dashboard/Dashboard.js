@@ -31,11 +31,10 @@ const Dashboard = () => {
                             <p>{user?.email}</p>
                         </div>
                         <div className="divider"></div>
-                        <li className='hover:bg-base-300 rounded-md'><Link to='dashboard'><HiOutlineHome></HiOutlineHome> Dashboard</Link></li>
-                        <li className='hover:bg-base-300 rounded-md'><Link to='my-profile'><FaUser></FaUser>My Profile</Link></li>
+                        <li className='rounded-md'><p><HiOutlineHome></HiOutlineHome> Dashboard</p></li>
                         <li className='hover:bg-base-300 rounded-md'><Link to='my-orders'><HiOutlineShoppingBag></HiOutlineShoppingBag>My Orders</Link></li>
+                        <li className='hover:bg-base-300 rounded-md'><Link to='my-profile'><FaUser></FaUser>My Profile</Link></li>
                         <li className='hover:bg-base-300 rounded-md'><Link to='add-review'><MdOutlineReviews></MdOutlineReviews>Add Reviews</Link></li>
-
                         <li><label htmlFor="logout-modal" className="hover:bg-base-300 modal-button"><FiLogOut></FiLogOut>Logout</label></li>
                     </ul>
 
