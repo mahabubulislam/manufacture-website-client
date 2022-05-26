@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import useParts from '../../hooks/useParts';
 import Loading from '../Shared/Loading';
 import Part from './/../Shared/Part';
@@ -16,7 +17,7 @@ const Parts = () => {
                     parts?.slice(-3).map(part => <Part part={part} key={part._id} refetch={refetch}></Part>)
                 }
             </div>
-            <button className='btn btn-secondary block mx-auto mt-10'>Show More</button>
+            <Link to='/shop' className='btn btn-secondary block w-40 p-4 mx-auto mt-10'>Show More</Link>
         </section>
     );
 };

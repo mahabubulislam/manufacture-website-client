@@ -14,10 +14,9 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/home" element={<Home />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
-        <Route path="/purchase" element={<RequireAuth><Purchase/></RequireAuth>}></Route>
+        <Route path="/purchase/:id" element={<RequireAuth><Purchase/></RequireAuth>}></Route>
       </Routes>
       <ScrollToTop
         smooth
