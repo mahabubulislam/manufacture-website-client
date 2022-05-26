@@ -11,6 +11,7 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import MyProfile from "./Pages/Dashboard/MyProfile";
 import AddReview from "./Pages/Dashboard/AddReview";
 import MyOrders from "./Pages/Dashboard/MyOrders";
+import Blogs from "./Pages/Blogs/Blogs";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="my-orders" element={<MyOrders/>}></Route>
           <Route path="add-review" element={<AddReview/>}></Route>
         </Route>
+        <Route path='/blogs' element={<Blogs/>}></Route>
       </Routes>
       <ScrollToTop
         smooth
