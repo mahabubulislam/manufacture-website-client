@@ -1,20 +1,31 @@
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import Loading from '../Shared/Loading';
 import SocialLogin from './SocialLogin';
 
 const Login = () => {
     const { register, handleSubmit } = useForm();
-    const [
-        signInWithEmailAndPassword,
-        user,
-        loading,
-        error,
-    ] = useSignInWithEmailAndPassword(auth);
+    const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+
     const onSubmit = data => {
-        signInWithEmailAndPassword(data?.email, data?.password)
+        signInWithEmailAndPassword(data?.email, data?.password);
+
     };
+
+    if (loading) {
+        return <Loading />
+    }
+    if (user) {
+        navigate(from, { replace: true });
+    }
+
+
     return (
 
         <div className="card flex-shrink-0 w-full mx-auto  max-w-sm shadow-2xl bg-base-100">
@@ -24,13 +35,13 @@ const Login = () => {
                         <label className="label">
                             <span className="label-text">Email</span>
                         </label>
-                        <input type="email" placeholder="Email" {...register("email")} className="input input-bordered" required />
+                        <input type="email"  {...register("email")} className="input input-bordered" required placeholder="Email"/>
                     </div>
                     <div >
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input type="password" placeholder="Password" {...register("password")} className="input input-bordered" required />
+                        <input type="password"  {...register("password")} className="input input-bordered" required placeholder="Password"/>
                         <label className="label">
                             <p className="label-text-alt cursor-pointer text-blue-600">Forgot password?</p>
                         </label>

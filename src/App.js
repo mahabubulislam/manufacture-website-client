@@ -5,6 +5,8 @@ import Navbar from "./Pages/Shared/Navbar";
 import { GoArrowUp } from 'react-icons/go';
 import Login from "./Pages/Login/Login";
 import SignUp from "./Pages/Login/SignUp";
+import RequireAuth from "./Pages/Login/RequireAuth";
+import Purchase from "./Pages/Purchase/Purchase";
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
         <Route path="/home" element={<Home />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
+        <Route path="/purchase" element={<RequireAuth><Purchase/></RequireAuth>}></Route>
       </Routes>
       <ScrollToTop
         smooth

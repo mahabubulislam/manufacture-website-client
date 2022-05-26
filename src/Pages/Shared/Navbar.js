@@ -42,12 +42,12 @@ const Navbar = () => {
                     {
                         user? 
                         <div className="dropdown dropdown-end">
-                        <label tabindex="0" className="btn btn-ghost btn-circle avatar mr-3 lg:mr-10">
+                        <label tabIndex="0" className="btn btn-ghost btn-circle avatar mr-3 lg:mr-10">
                             <div className="w-10 rounded-full ">
                                 <img src={user.photoURL || 'https://api.lorem.space/image/face?hash=33791'} alt='' />
                             </div>
                         </label>
-                        <ul tabindex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-200 rounded-box w-52">
+                        <ul tabIndex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-200 rounded-box w-52">
                             <li>
                                 <Link to='my-profile' className="justify-between">
                                     My Profile
