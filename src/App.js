@@ -7,6 +7,8 @@ import Login from "./Pages/Login/Login";
 import SignUp from "./Pages/Login/SignUp";
 import RequireAuth from "./Pages/Login/RequireAuth";
 import Purchase from "./Pages/Purchase/Purchase";
+import Dashboard from "./Pages/Dashboard/Dashboard";
+import MyProfile from "./Pages/Dashboard/MyProfile";
 
 function App() {
   return (
@@ -17,6 +19,9 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
         <Route path="/purchase/:id" element={<RequireAuth><Purchase/></RequireAuth>}></Route>
+        <Route path="/dashboard" element={<RequireAuth><Dashboard/></RequireAuth>}>
+          <Route index element={<MyProfile/>}></Route>
+        </Route>
       </Routes>
       <ScrollToTop
         smooth
