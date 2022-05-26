@@ -1,10 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import useParts from '../../hooks/useParts';
 import Loading from '../Shared/Loading';
-import Part from './/../Shared/Part';
+import Part from '../Shared/Part';
 
-const Parts = () => {
+const Shop = () => {
     const { parts, isLoading, refetch } = useParts()
     if (isLoading) {
         return <Loading />
@@ -12,15 +11,13 @@ const Parts = () => {
 
     return (
         <section className='w-4/5 mx-auto my-10'>
-            <h3 className='text-3xl text-primary font-semibold text-center my-10'>Recently Added</h3>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-10'>
                 {
-                    parts?.slice(0,3).map(part => <Part part={part} key={part._id} refetch={refetch}></Part>)
+                    parts?.map(part => <Part part={part} key={part._id} refetch={refetch}></Part>)
                 }
             </div>
-            <Link to='/shop' className='btn btn-secondary block w-40 p-4 mx-auto mt-10'>Show More</Link>
         </section>
     );
 };
 
-export default Parts;
+export default Shop;
