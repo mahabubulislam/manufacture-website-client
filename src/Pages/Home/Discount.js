@@ -4,7 +4,7 @@ import banner from '../../assets/banner-center.png'
 const Discount = () => {
    
     return (
-        <div className="hero min-h-screen bg-base-200">
+        <section className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <img src={banner} className="max-w-sm rounded-lg shadow-2xl" alt='Bicycle' />
                 <div>
@@ -15,7 +15,7 @@ const Discount = () => {
                     <Link to='/shop' className="btn btn-primary">Shop Now</Link>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 
