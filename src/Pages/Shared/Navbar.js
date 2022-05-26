@@ -5,12 +5,16 @@ import logo from '../../assets/logo.png'
 import auth from '../../firebase.init';
 import LogoutModal from '../Login/LogoutModal';
 import Loading from './Loading';
+import {MdSpaceDashboard} from 'react-icons/md';
 const Navbar = () => {
     const [user, loading] = useAuthState(auth)
 
     const menuItems = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/shop'>Shop</Link></li>
+        {
+            user && <li><Link to='/dashboard'>Dashboard</Link></li>
+        }
         <li><Link to='/about'>About us</Link></li>
         <li><Link to='/contact'>Contact</Link></li>
         <li><Link to='/portfolio'>Portfolio</Link></li>
@@ -43,7 +47,7 @@ const Navbar = () => {
                         !user && <Link className='mr-3 lg:mr-10 btn btn-primary' to='/login'>Login</Link>
                     }
                     {
-                        user && <button className='btn btn-primary mr-3 lg:mr-10'><Link to='/dashboard'>Dashboard</Link></button>
+                        user &&     <label htmlFor="dashboard" className="text-4xl drawer-button lg:hidden"><MdSpaceDashboard/></label>
                     }
                 </div>
             </div>

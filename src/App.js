@@ -16,6 +16,8 @@ import Shop from "./Pages/Shop/Shop";
 import Portfolio from "./Pages/Portfolio/Portfolio";
 import About from "./Pages/About/About";
 import Contact from "./Pages/Contact/Contact";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -26,24 +28,35 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
         <Route path="/shop" element={<Shop />}></Route>
-        <Route path="shop/purchase/:id" element={<RequireAuth><Purchase/></RequireAuth>}></Route>
-        <Route path="/purchase/:id" element={<RequireAuth><Purchase/></RequireAuth>}></Route>
-        <Route path='/blogs' element={<Blogs/>}></Route>
-        <Route path="portfolio" element={<Portfolio/>}></Route>
-        <Route path="about" element={<About/>}></Route>
-        <Route path="contact" element={<Contact/>}></Route>
-        <Route path="/dashboard" element={<RequireAuth><Dashboard/></RequireAuth>}>
-          <Route index element={<MyOrders/>}></Route>
-          <Route path="my-profile" element={<MyProfile/>}></Route>
-          <Route path="my-orders" element={<MyOrders/>}></Route>
-          <Route path="add-review" element={<AddReview/>}></Route>
+        <Route path="shop/purchase/:id" element={<RequireAuth><Purchase /></RequireAuth>}></Route>
+        <Route path="/purchase/:id" element={<RequireAuth><Purchase /></RequireAuth>}></Route>
+        <Route path='/blogs' element={<Blogs />}></Route>
+        <Route path="portfolio" element={<Portfolio />}></Route>
+        <Route path="about" element={<About />}></Route>
+        <Route path="contact" element={<Contact />}></Route>
+        <Route path="/dashboard" element={<RequireAuth><Dashboard /></RequireAuth>}>
+          <Route index element={<MyOrders />}></Route>
+          <Route path="my-profile" element={<MyProfile />}></Route>
+          <Route path="my-orders" element={<MyOrders />}></Route>
+          <Route path="add-review" element={<AddReview />}></Route>
         </Route>
       </Routes>
       <ScrollToTop
         smooth
         viewBox="0 0 24 24"
-        style={{background:'#20AFB3'}}
+        style={{ background: '#20AFB3' }}
         component={<GoArrowUp className="block w-10 text-white text-3xl"></GoArrowUp>}
+      />
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
       />
     </div>
   );
