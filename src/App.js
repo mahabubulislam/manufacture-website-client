@@ -13,6 +13,7 @@ import AddReview from "./Pages/Dashboard/AddReview";
 import MyOrders from "./Pages/Dashboard/MyOrders";
 import Blogs from "./Pages/Blogs/Blogs";
 import Shop from "./Pages/Shop/Shop";
+import Portfolio from "./Pages/Portfolio/Portfolio";
 
 function App() {
   return (
@@ -25,13 +26,14 @@ function App() {
         <Route path="/shop" element={<Shop />}></Route>
         <Route path="shop/purchase/:id" element={<RequireAuth><Purchase/></RequireAuth>}></Route>
         <Route path="/purchase/:id" element={<RequireAuth><Purchase/></RequireAuth>}></Route>
+        <Route path='/blogs' element={<Blogs/>}></Route>
+        <Route path="portfolio" element={<Portfolio/>}></Route>
         <Route path="/dashboard" element={<RequireAuth><Dashboard/></RequireAuth>}>
           <Route index element={<MyOrders/>}></Route>
           <Route path="my-profile" element={<MyProfile/>}></Route>
           <Route path="my-orders" element={<MyOrders/>}></Route>
           <Route path="add-review" element={<AddReview/>}></Route>
         </Route>
-        <Route path='/blogs' element={<Blogs/>}></Route>
       </Routes>
       <ScrollToTop
         smooth
