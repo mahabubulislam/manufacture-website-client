@@ -3,6 +3,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.png'
 import auth from '../../firebase.init';
+import LogoutModal from '../Login/LogoutModal';
 import Loading from './Loading';
 const Navbar = () => {
     const [user, loading] = useAuthState(auth)
@@ -49,18 +50,19 @@ const Navbar = () => {
                         <ul tabindex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-200 rounded-box w-52">
                             <li>
                                 <Link to='my-profile' className="justify-between">
-                                    Profile
+                                    My Profile
                                 </Link>
                             </li>
                             <li><Link to='Dashboard'>Dashboard</Link></li>
-                            <li><button>Logout</button></li>
+                            <li><label htmlFor="logout-modal" className="hover:bg-base-300 modal-button bg-base-200">Logout</label></li>
                         </ul>
                     </div>
                     :
-                    <Link to='/login'>Login</Link>
+                    <Link className='mr-3 lg:mr-10 btn btn-primary' to='/login'>Login</Link>
                     }
                 </div>
             </div>
+            <LogoutModal/>
         </div >
     );
 };
