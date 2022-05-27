@@ -15,7 +15,7 @@ const Reviews = () => {
     }
     return (
         <div>
-            <h3 className='text-3xl font-bold text-center '>Customers Reviews</h3>
+            <h3 className='text-3xl font-bold text-center'>Customers Reviews</h3>
             <Swiper
                 spaceBetween={30}
                 centeredSlides={true}

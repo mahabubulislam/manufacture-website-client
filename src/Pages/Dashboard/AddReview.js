@@ -5,6 +5,7 @@ import { FaStar } from 'react-icons/fa'
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 import { toast } from 'react-toastify';
+import feedback from '../../assets/feedback.jpg'
 
 const colors = {
     orange: "#FFBA5A",
@@ -54,44 +55,51 @@ const AddReview = () => {
             },
             body: JSON.stringify(customerReview)
         })
-        .then(res=>res.json())
-        .then(data=>{
-            if(data.acknowledged===true){
-                reset()
-                toast.success('Your reviews added succesfully')
-            }
-            else{
-                toast.error("Something went wrong, Please try again")
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged === true) {
+                    reset()
+                    toast.success('Your reviews added succesfully')
+                }
+                else {
+                    toast.error("Something went wrong, Please try again")
+                }
+            })
 
     };
 
 
     return (
-        <div className='flex flex-col items-center'>
-            <h2>Ratings </h2>
-            <div className='flex'>
-                {stars.map((_, index) => {
-                    return (
-                        <FaStar
-                            key={index}
-                            size={24}
-                            onClick={() => handleClick(index + 1)}
-                            onMouseOver={() => handleMouseOver(index + 1)}
-                            onMouseLeave={handleMouseLeave}
-                            color={(hoverValue || currentValue) > index ? colors.orange : colors.grey}
-                            className='cursor-pointer mr-2'
-                        />
-                    )
-                })}
-            </div>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <textarea  {...register("reviewText")} className="textarea textarea-primary mt-5" placeholder="Please share your review." required></textarea>
-                <input className='btn btn-primary block' type="submit" value="Review" />
-            </form>
+        <section className="hero min-h-screen" style={{ backgroundImage: `url(${feedback})` }}>
+            <div className="hero-overlay bg-opacity-90"></div>
+            <div className="hero-content text-center text-neutral-content">
+                <div className='flex flex-col items-center'>
 
-        </div>
+                    <h2>Ratings </h2>
+                    <div className='flex'>
+                        {stars.map((_, index) => {
+                            return (
+                                <FaStar
+                                    key={index}
+                                    size={24}
+                                    onClick={() => handleClick(index + 1)}
+                                    onMouseOver={() => handleMouseOver(index + 1)}
+                                    onMouseLeave={handleMouseLeave}
+                                    color={(hoverValue || currentValue) > index ? colors.orange : colors.grey}
+                                    className='cursor-pointer mr-2'
+                                />
+                            )
+                        })}
+                    </div>
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <textarea  {...register("reviewText")} className="textarea textarea-primary mt-5" placeholder="Please share your review." required></textarea>
+                        <input className='btn btn-primary block' type="submit" value="Review" />
+                    </form>
+
+                </div>
+            </div>
+        </section>
+
     );
 };
 

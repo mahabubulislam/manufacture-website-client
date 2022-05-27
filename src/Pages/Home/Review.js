@@ -4,7 +4,7 @@ import Rating from 'react-rating';
 const Review = ({reviews}) => {
     const {name, img, review, rating} = reviews;
     return (
-        <div class="py-8 px-8 my-10 flex-col justify-center items w-1/3 mx-auto bg-primary">
+        <div class="py-8 px-8 my-10 flex-col justify-center items w-4/5 md:w-1/3 mx-auto bg-primary rounded-md">
             <img class=" mx-auto h-16 w-16 rounded-full -mt-16 " src={img || 'https://api.lorem.space/image/face?hash=92310'} alt="Customer" />
             <div class="text-center">
                 <div>
