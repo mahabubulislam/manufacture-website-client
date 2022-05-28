@@ -33,7 +33,7 @@ const MyOrders = () => {
                     <tbody>
                         {
                             orders?.map((order, index) =>
-                                <tr className='text-left'>
+                                <tr className='text-left' key={index}>
                                     <th>{index + 1}</th>
                                     <td>{order?.product}</td>
                                     <td><img className='rounded-lg w-8' src={order?.img} alt={order.product} /></td>
