@@ -9,7 +9,12 @@ const MyOrders = () => {
     const [user, loading] = useAuthState(auth)
     const email = user?.email;
 
-    const { data: orders, isLoading } = useQuery('orders', () => fetch(`http://localhost:5000/myorders/?email=${email}`).then(res => res.json()));
+    const { data: orders, isLoading } = useQuery('orders', () => fetch(`http://localhost:5000/myorders/?email=${email}`,{
+        method:'GET',
+        headers:{
+            'authorization':`Bearer ${localStorage.getItem('accessToken')}`
+        }
+    }).then(res => res.json()));
     if (loading || isLoading) {
         return <Loading />
     }
