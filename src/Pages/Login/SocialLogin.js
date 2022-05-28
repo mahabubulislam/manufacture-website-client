@@ -3,11 +3,13 @@ import { useSignInWithGoogle, useSignInWithFacebook } from 'react-firebase-hooks
 import { FaFacebook, FaGoogle } from 'react-icons/fa';
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import useToken from '../../hooks/useToken';
 import Loading from '../Shared/Loading';
 
 const SocialLogin = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
     const [signInWithFacebook, fbUser, fbLoading, fbError] = useSignInWithFacebook(auth);
+    const [token] = useToken(user || fbUser)
  
     const navigate = useNavigate();
     const location = useLocation();
@@ -16,7 +18,7 @@ const SocialLogin = () => {
     if (loading || fbLoading) {
         return <Loading />
     }
-    if (user || fbUser) {
+    if (token) {
         navigate(from, { replace: true });
     }
 
