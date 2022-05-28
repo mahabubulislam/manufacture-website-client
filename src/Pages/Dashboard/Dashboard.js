@@ -37,7 +37,6 @@ const Dashboard = () => {
                         <li className='hover:bg-base-300 rounded-md'><Link to='my-profile'><FaUser></FaUser>My Profile</Link></li>
                         <li className='hover:bg-base-300 rounded-md'><Link to='add-review'><MdOutlineReviews></MdOutlineReviews>Add Reviews</Link></li>
                         <li className='hover:bg-base-300 rounded-md'><Link to='add-products'><IoAddCircle></IoAddCircle>Add Products</Link></li>
-                        <li className='hover:bg-base-300 rounded-md'><Link to='manage-products'><AiFillSetting></AiFillSetting>Manage Products</Link></li>
                         <li className='hover:bg-base-300 rounded-md'><Link to='all-users'><IoPersonAddSharp></IoPersonAddSharp>Make Admin</Link></li>
                         <li><label htmlFor="logout-modal" className="hover:bg-base-300 modal-button"><FiLogOut></FiLogOut>Logout</label></li>
                     </ul>
