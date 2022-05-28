@@ -4,6 +4,8 @@ import { HiOutlineHome, HiOutlineShoppingBag } from 'react-icons/hi'
 import { FaUser } from 'react-icons/fa'
 import { MdOutlineReviews } from 'react-icons/md'
 import { FiLogOut } from 'react-icons/fi'
+import { AiFillSetting } from 'react-icons/ai'
+import { IoPersonAddSharp, IoAddCircle } from 'react-icons/io5'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 
@@ -31,8 +33,12 @@ const Dashboard = () => {
                         <div className="divider"></div>
                         <li className='rounded-md'><p><HiOutlineHome></HiOutlineHome> Dashboard</p></li>
                         <li className='hover:bg-base-300 rounded-md'><Link to='my-orders'><HiOutlineShoppingBag></HiOutlineShoppingBag>My Orders</Link></li>
+                        <li className='hover:bg-base-300 rounded-md'><Link to='manage-orders'><HiOutlineShoppingBag></HiOutlineShoppingBag>Manage Orders</Link></li>
                         <li className='hover:bg-base-300 rounded-md'><Link to='my-profile'><FaUser></FaUser>My Profile</Link></li>
                         <li className='hover:bg-base-300 rounded-md'><Link to='add-review'><MdOutlineReviews></MdOutlineReviews>Add Reviews</Link></li>
+                        <li className='hover:bg-base-300 rounded-md'><Link to='add-products'><IoAddCircle></IoAddCircle>Add Products</Link></li>
+                        <li className='hover:bg-base-300 rounded-md'><Link to='manage-products'><AiFillSetting></AiFillSetting>Manage Products</Link></li>
+                        <li className='hover:bg-base-300 rounded-md'><Link to='all-users'><IoPersonAddSharp></IoPersonAddSharp>Make Admin</Link></li>
                         <li><label htmlFor="logout-modal" className="hover:bg-base-300 modal-button"><FiLogOut></FiLogOut>Logout</label></li>
                     </ul>
 

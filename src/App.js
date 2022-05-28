@@ -18,6 +18,10 @@ import About from "./Pages/About/About";
 import Contact from "./Pages/Contact/Contact";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import AddProduct from "./Pages/Dashboard/AddProduct";
+import ManageProducts from "./Pages/Dashboard/ManageProducts";
+import MakeAdmin from "./Pages/Dashboard/MakeAdmin";
+import ManageAllOrders from "./Pages/Dashboard/ManageAllOrders";
 
 function App() {
   return (
@@ -39,6 +43,10 @@ function App() {
           <Route path="my-profile" element={<MyProfile />}></Route>
           <Route path="my-orders" element={<MyOrders />}></Route>
           <Route path="add-review" element={<AddReview />}></Route>
+          <Route path="add-products" element={<AddProduct />}></Route>
+          <Route path="manage-products" element={<ManageProducts />}></Route>
+          <Route path="manage-orders" element={<ManageAllOrders />}></Route>
+          <Route path="all-users" element={<MakeAdmin />}></Route>
         </Route>
       </Routes>
       <ScrollToTop
