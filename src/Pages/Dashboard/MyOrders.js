@@ -13,7 +13,7 @@ const MyOrders = () => {
     if (loading || isLoading) {
         return <Loading />
     }
-    console.log(orders);
+
     return (
         <section>
             <h1 className='text-3xl text-center text-primary font-bold uppercase'>My Orders: {orders?.length}</h1>

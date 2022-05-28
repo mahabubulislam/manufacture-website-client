@@ -76,6 +76,18 @@ const CheckoutForm = ({ price, user, _id }) => {
                 order: _id,
                 transactionId: paymentIntent.id
             }
+            fetch(`http://localhost:5000/orders/payment/${_id}`, {
+                method: 'PATCH',
+                headers: {
+                    'content-type': 'application/json',
+                },
+                body: JSON.stringify(payment)
+            }).then(res => res.json())
+                .then(data => {
+                    setProcessing(false);
+                    console.log(data);
+                })
+
         }
 
     };
@@ -102,6 +114,12 @@ const CheckoutForm = ({ price, user, _id }) => {
         </form>
         {
             cardError && <p className='text-red-500'>{cardError}</p>
+        }
+        {
+            success && <div className='text-green-500'>
+                <p>{success}  </p>
+                <p>Your transaction Id: <span className="text-orange-500 font-bold">{transactionId}</span> </p>
+            </div>
         }
     </>
     );

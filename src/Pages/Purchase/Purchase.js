@@ -98,7 +98,7 @@ const Purchase = () => {
                     </div>
                 </div>
                 {open &&
-                    <div class="card w-96 bg-amber-100 shadow-xl">
+                    <div class="card w-96 h-96 bg-amber-100 shadow-xl">
                         <div class="card-body">
                             <h2 class="card-title text-primary-focus">Checkout</h2>
                             <p>Total Price: $ {totalPrice} </p>
