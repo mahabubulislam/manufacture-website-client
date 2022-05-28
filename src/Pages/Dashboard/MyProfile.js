@@ -24,7 +24,7 @@ const MyProfile = () => {
             division: data?.division,
             exam: data?.exam,
             institute: data?.institute,
-            linkdin: data?.linkdin,
+            linkedin: data?.linkedin,
             phone: data?.phone,
             policeStation: data?.policeStation,
             result: data?.result,
@@ -50,7 +50,7 @@ const MyProfile = () => {
                 }
             })
     };
-    const { board, district, division, exam, institute, linkdin, phone, policeStation, result, subject, village, year, } = data
+    const { board, district, division, exam, institute, linkedin, phone, policeStation, result, subject, village, year, } = data
 
     return (
         <div>
@@ -130,7 +130,7 @@ const MyProfile = () => {
                                     <label class="label">
                                         <span class="label-text font-semibold">Linkedin</span>
                                     </label>
-                                    <input type="text" {...register("linkdin", { required: true })} defaultValue={linkdin} class="input input-bordered w-full max-w-xs" placeholder='Your Linkedin Profle Link'/>
+                                    <input type="text" {...register("linkedin", { required: true })} defaultValue={linkedin} class="input input-bordered w-full max-w-xs" placeholder='Your Linkedin Profle Link'/>
                                 </div>
                             </div>
                             <input className='btn btn-primary block mx-auto' type="submit" value="Update Profile" />

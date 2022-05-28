@@ -31,7 +31,7 @@ const Reviews = () => {
                 className="mySwiper"
             >
                 {
-                    reviews.map(review => <SwiperSlide>
+                    reviews?.map(review => <SwiperSlide>
                         <Review key={review._id} reviews={review} refetch={refetch} />
                     </SwiperSlide>)
                 }
