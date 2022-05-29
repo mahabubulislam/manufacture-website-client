@@ -13,8 +13,8 @@ const AllUsers = () => {
     return (
         <section>
             <h1 className='text-3xl text-center text-primary font-bold uppercase'>Total users: {users?.length}</h1>
-            <div class="overflow-x-auto">
-                <table class="table table-compact w-full">
+            <div className="overflow-x-auto">
+                <table className="table table-compact w-full">
                     <thead>
                         <tr>
                             <th></th>

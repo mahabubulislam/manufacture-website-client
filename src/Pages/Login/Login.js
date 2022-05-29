@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -12,19 +13,21 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
-    
+
     const onSubmit = data => {
         signInWithEmailAndPassword(data?.email, data?.password);
-        
+
     };
-    
+
     const [token] = useToken(user)
 
+    useEffect(() => {
+        if (token) {
+            navigate(from, { replace: true });
+        }
+    }, [token, from, navigate])
     if (loading) {
         return <Loading />
-    }
-    if (token) {
-        navigate(from, { replace: true });
     }
 
 
@@ -44,6 +47,9 @@ const Login = () => {
                             <span className="label-text">Password</span>
                         </label>
                         <input type="password"  {...register("password")} className="input input-bordered" required placeholder="Password" />
+                        <label className="label">
+                            {error && <small className='text-red-700'>{error?.message?.slice(10)}</small>}
+                        </label>
                         <label className="label">
                             <p className="label-text-alt cursor-pointer text-blue-600">Forgot password?</p>
                         </label>

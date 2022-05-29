@@ -10,8 +10,8 @@ const Portfolio = () => {
             </div>
             <div className='p-5 mt-10'>
                 <h3 className='text-2xl'>Educational Qualification</h3>
-                <div class="overflow-x-auto mt-10">
-                    <table class="sm:table-auto md:table-fixed">
+                <div className="overflow-x-auto mt-10">
+                    <table className="sm:table-auto md:table-fixed">
 
                         <thead className='bg-primary'>
                             <tr>

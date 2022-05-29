@@ -55,15 +55,15 @@ const MyProfile = () => {
     return (
         <div>
             <h1 className='text-4xl font-bold'>My Profile</h1>
-            <div class="card bg-base-100 shadow-xl">
-                <div class="card-body">
+            <div className="card bg-base-100 shadow-xl">
+                <div className="card-body">
                     <div className='flex flex-col-reverse md:flex-row  justify-around items-center'>
                         <div>
-                            <h2 class="card-title">{name}</h2>
+                            <h2 className="card-title">{name}</h2>
                             <h4 className="text-xl">{email}</h4>
                         </div>
-                        <div class="avatar">
-                            <div class="w-40 mask mask-hexagon">
+                        <div className="avatar">
+                            <div className="w-40 mask mask-hexagon">
                                 <img className='w-20 rounded-full' src={user?.photoURL || 'https://api.lorem.space/image/face?hash=92310'} alt={name} />
                             </div>
                         </div>
@@ -76,61 +76,61 @@ const MyProfile = () => {
 
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <div className='flex flex-col lg:flex-row justify-between'>
-                                <div class="form-control w-full max-w-xs">
+                                <div className="form-control w-full max-w-xs">
                                     <h4 className='text-xl font-semibold'>Education:</h4>
-                                    <label class="label">
-                                        <span class="label-text font-semibold">Exam/Degree Name</span>
+                                    <label className="label">
+                                        <span className="label-text font-semibold">Exam/Degree Name</span>
                                     </label>
-                                    <input  type="text" {...register("exam", { required: true })} class="input input-bordered w-full max-w-xs" placeholder='Exam name'/>
-                                    <label class="label">
-                                        <span class="label-text font-semibold">Board</span>
+                                    <input  type="text" {...register("exam", { required: true })} className="input input-bordered w-full max-w-xs" placeholder='Exam name'/>
+                                    <label className="label">
+                                        <span className="label-text font-semibold">Board</span>
                                     </label>
-                                    <input type="text" {...register("board", { required: true })}  class="input input-bordered w-full max-w-xs" placeholder='Board Name'/>
-                                    <label class="label">
-                                        <span class="label-text font-semibold">Subject/Group</span>
+                                    <input type="text" {...register("board", { required: true })}  className="input input-bordered w-full max-w-xs" placeholder='Board Name'/>
+                                    <label className="label">
+                                        <span className="label-text font-semibold">Subject/Group</span>
                                     </label>
-                                    <input type="text" {...register("subject", { required: true })}  class="input input-bordered w-full max-w-xs" placeholder='Group/ Subject Name'/>
-                                    <label class="label">
-                                        <span class="label-text font-semibold">Insititute</span>
+                                    <input type="text" {...register("subject", { required: true })}  className="input input-bordered w-full max-w-xs" placeholder='Group/ Subject Name'/>
+                                    <label className="label">
+                                        <span className="label-text font-semibold">Insititute</span>
                                     </label>
-                                    <input type="text" {...register("institute", { required: true })} class="input input-bordered w-full max-w-xs" placeholder='Institute name'/>
-                                    <label class="label">
-                                        <span class="label-text font-semibold">Year</span>
+                                    <input type="text" {...register("institute", { required: true })} className="input input-bordered w-full max-w-xs" placeholder='Institute name'/>
+                                    <label className="label">
+                                        <span className="label-text font-semibold">Year</span>
                                     </label>
-                                    <input type="text" {...register("year", { required: true })} class="input input-bordered w-full max-w-xs" placeholder='Passing Year'/>
-                                    <label class="label">
-                                        <span class="label-text font-semibold">Result</span>
+                                    <input type="text" {...register("year", { required: true })} className="input input-bordered w-full max-w-xs" placeholder='Passing Year'/>
+                                    <label className="label">
+                                        <span className="label-text font-semibold">Result</span>
                                     </label>
-                                    <input type="text" {...register("result", { required: true })}  class="input input-bordered w-full max-w-xs" placeholder='GPA / CGPA'/>
+                                    <input type="text" {...register("result", { required: true })}  className="input input-bordered w-full max-w-xs" placeholder='GPA / CGPA'/>
                                 </div>
 
 
-                                <div class="form-control w-full max-w-xs">
+                                <div className="form-control w-full max-w-xs">
                                     <h4 className='text-xl font-semibold'>Contact:</h4>
-                                    <label class="label">
-                                        <span class="label-text font-semibold">Division</span>
+                                    <label className="label">
+                                        <span className="label-text font-semibold">Division</span>
                                     </label>
-                                    <input type="text" {...register("division", { required: true })}  class="input input-bordered w-full max-w-xs" placeholder='Your Division'/>
-                                    <label class="label">
-                                        <span class="label-text font-semibold">District</span>
+                                    <input type="text" {...register("division", { required: true })}  className="input input-bordered w-full max-w-xs" placeholder='Your Division'/>
+                                    <label className="label">
+                                        <span className="label-text font-semibold">District</span>
                                     </label>
-                                    <input type="text" {...register("district", { required: true })}  class="input input-bordered w-full max-w-xs" placeholder='Your District'/>
-                                    <label class="label">
-                                        <span class="label-text font-semibold">Police Station</span>
+                                    <input type="text" {...register("district", { required: true })}  className="input input-bordered w-full max-w-xs" placeholder='Your District'/>
+                                    <label className="label">
+                                        <span className="label-text font-semibold">Police Station</span>
                                     </label>
-                                    <input type="text" {...register("policeStation", { required: true })}  class="input input-bordered w-full max-w-xs" placeholder='Your Police Station'/>
-                                    <label class="label">
-                                        <span class="label-text font-semibold">Village</span>
+                                    <input type="text" {...register("policeStation", { required: true })}  className="input input-bordered w-full max-w-xs" placeholder='Your Police Station'/>
+                                    <label className="label">
+                                        <span className="label-text font-semibold">Village</span>
                                     </label>
-                                    <input type="text" {...register("village", { required: true })}  class="input input-bordered w-full max-w-xs" placeholder='Your Village'/>
-                                    <label class="label">
-                                        <span class="label-text font-semibold">Phone</span>
+                                    <input type="text" {...register("village", { required: true })}  className="input input-bordered w-full max-w-xs" placeholder='Your Village'/>
+                                    <label className="label">
+                                        <span className="label-text font-semibold">Phone</span>
                                     </label>
-                                    <input type="text" {...register("phone", { required: true })}  class="input input-bordered w-full max-w-xs" placeholder='Your Phone Number'/>
-                                    <label class="label">
-                                        <span class="label-text font-semibold">Linkedin</span>
+                                    <input type="text" {...register("phone", { required: true })}  className="input input-bordered w-full max-w-xs" placeholder='Your Phone Number'/>
+                                    <label className="label">
+                                        <span className="label-text font-semibold">Linkedin</span>
                                     </label>
-                                    <input type="text" {...register("linkedin", { required: true })} class="input input-bordered w-full max-w-xs" placeholder='Your Linkedin Profle Link'/>
+                                    <input type="text" {...register("linkedin", { required: true })} className="input input-bordered w-full max-w-xs" placeholder='Your Linkedin Profle Link'/>
                                 </div>
                             </div>
                             <input className='btn btn-primary block mx-auto' type="submit" value="Update Profile" />

@@ -9,9 +9,9 @@ import { useQuery } from 'react-query';
 import Loading from '../Shared/Loading';
 
 const Reviews = () => {
-    const { data: reviews,isLoading, refetch } = useQuery('reviews', () => fetch('http://localhost:5000/reviews').then(res => res.json()))
-    if(isLoading){
-        return <Loading/>
+    const { data: reviews, isLoading, refetch } = useQuery('reviews', () => fetch('http://localhost:5000/reviews').then(res => res.json()))
+    if (isLoading) {
+        return <Loading />
     }
     return (
         <div>
@@ -31,9 +31,10 @@ const Reviews = () => {
                 className="mySwiper"
             >
                 {
-                    reviews?.map(review => <SwiperSlide>
-                        <Review key={review._id} reviews={review} refetch={refetch} />
-                    </SwiperSlide>)
+                    reviews?.map(review =>
+                        <SwiperSlide key={review._id}>
+                            <Review key={review._id} reviews={review} refetch={refetch} />
+                        </SwiperSlide>)
                 }
 
             </Swiper>

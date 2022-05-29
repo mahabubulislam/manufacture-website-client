@@ -54,8 +54,8 @@ const UserRow = ({ index, user, refetch }) => {
                 <button onClick={deleteUser} className='btn btn-xm'>Delete</button>
                 <button onClick={makeAdmin} className='btn btn-xm'>Make Admin</button>
 
-                {/* <label htmlFor="admin-modal" class="btn btn-xs btn-success mr-2">Make Admin</label> */}
-                {/* <label htmlFor="delete-modal" class="btn btn-xs btn-error ml-2"><RiDeleteBin6Line className='text-sm mx-2' /> Delete User</label> */}
+                {/* <label htmlFor="admin-modal" className="btn btn-xs btn-success mr-2">Make Admin</label> */}
+                {/* <label htmlFor="delete-modal" className="btn btn-xs btn-error ml-2"><RiDeleteBin6Line className='text-sm mx-2' /> Delete User</label> */}
             </td>
             {/* <td>
                 <input type="checkbox" id="admin-modal" className="modal-toggle" />

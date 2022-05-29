@@ -78,9 +78,9 @@ const Purchase = () => {
                         </div>
                     </div>
                 </div>
-                <div class="card w-96 bg-base-200 shadow-xl">
-                    <div class="card-body">
-                        <h2 class="card-title">Shipping Address</h2>
+                <div className="card w-96 bg-base-200 shadow-xl">
+                    <div className="card-body">
+                        <h2 className="card-title">Shipping Address</h2>
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <div className='flex flex-col'>
                                 <label className="label">
@@ -89,8 +89,8 @@ const Purchase = () => {
                                 <input type="text" className="input input-bordered mb-2  cursor-not-allowed " value={user?.displayName} readOnly />
                                 <input type="email" className="input input-bordered mb-2 cursor-not-allowed " value={user?.email} readOnly />
                                 <input type="tel" {...register("phone")} className="input input-bordered mb-2" required placeholder="Phone" />
-                                <textarea class="textarea textarea-bordered mb-2" {...register("address")} placeholder="Address" required></textarea>
-                                <input type="submit" disabled={orderQuantity < minQuantity || orderQuantity > quantity || ordered === true} class="btn btn-primary" value="Place Order" />
+                                <textarea className="textarea textarea-bordered mb-2" {...register("address")} placeholder="Address" required></textarea>
+                                <input type="submit" disabled={orderQuantity < minQuantity || orderQuantity > quantity || ordered === true} className="btn btn-primary" value="Place Order" />
                             </div>
                         </form>
                         {ordered && <button onClick={() => setOpen(true)} disabled={open} className='btn btn-primary my-2'> Proceed to Pay</button>}
@@ -98,9 +98,9 @@ const Purchase = () => {
                     </div>
                 </div>
                 {open &&
-                    <div class="card w-96 h-96 bg-amber-100 shadow-xl">
-                        <div class="card-body">
-                            <h2 class="card-title text-primary-focus">Checkout</h2>
+                    <div className="card w-96 h-96 bg-amber-100 shadow-xl">
+                        <div className="card-body">
+                            <h2 className="card-title text-primary-focus">Checkout</h2>
                             <p>Total Price: $ {totalPrice} </p>
                             <Checkout price={totalPrice} user={user} _id={id} />
                         </div>

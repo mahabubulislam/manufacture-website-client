@@ -23,8 +23,8 @@ const Dashboard = () => {
                 <div className="drawer-side">
                     <label htmlFor="dashboard" className="drawer-overlay "></label>
                     <ul className="menu p-4 overflow-y-auto w-80 text-base-content  bg-primary">
-                        <div class="avatar mx-auto mb-2">
-                            <div class="w-24 rounded-full">
+                        <div className="avatar mx-auto mb-2">
+                            <div className="w-24 rounded-full">
                                 <img src={user.photoURL || 'https://api.lorem.space/image/face?hash=92310'} alt='user' />
                             </div>
                         </div>

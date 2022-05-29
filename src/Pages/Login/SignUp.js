@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import SocialLogin from './SocialLogin';
 import { useForm } from "react-hook-form";
@@ -19,12 +19,16 @@ const SignUp = () => {
     };
     const [token] = useToken(user)
 
+    useEffect(() => {
+        if (token) {
+            return <Navigate to='/shop'></Navigate>
+        }
+    }, [token])
+
     if (loading || updating) {
         return <Loading />
     }
-    if (token) {
-        return <Navigate to='/shop'></Navigate>
-    }
+
     return (
         <div className="card flex-shrink-0 w-full mx-auto  max-w-sm shadow-2xl bg-base-100">
             <div className="card-body">
@@ -51,12 +55,12 @@ const SignUp = () => {
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input type="password" placeholder="Password" {...register("password")} className="input input-bordered" required />
+                        <input type="password"  placeholder="Password" {...register("password")} className="input input-bordered" required />
                         <label className="label">
                             <small>Already have an account? <Link to='/login' className="label-text-alt text-blue-600"> Login</Link></small>
                         </label>
                         <label className="label">
-                            {error && <small>{error?.message?.slice(10)}</small>}
+                            {error && <small  className='text-red-700'>{error?.message?.slice(10)}</small>}
                         </label>
                     </div>
                     <div className="mt-2">
