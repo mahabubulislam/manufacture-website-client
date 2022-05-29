@@ -9,7 +9,7 @@ const MyOrders = () => {
     const [user, loading] = useAuthState(auth)
     const email = user?.email;
 
-    const { data: orders, isLoading } = useQuery('orders', () => fetch(`http://localhost:5000/myorders/?email=${email}`,{
+    const { data: orders, isLoading } = useQuery('orders', () => fetch(`https://murmuring-retreat-70420.herokuapp.com/myorders/?email=${email}`,{
         method:'GET',
         headers:{
             'authorization':`Bearer ${localStorage.getItem('accessToken')}`
@@ -18,7 +18,7 @@ const MyOrders = () => {
     if (loading || isLoading) {
         return <Loading />
     }
-
+console.log(orders);
     return (
         <section>
             <h1 className='text-3xl text-center text-primary font-bold uppercase'>My Orders: {orders?.length}</h1>

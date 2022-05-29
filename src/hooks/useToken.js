@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
 const useToken = user =>{
-
+console.log(user?.user?.displayName);
     const [token, setToken] = useState('');
     useEffect(()=>{
         const email = user?.user?.email;
@@ -11,7 +11,7 @@ const useToken = user =>{
             img: user?.user?.photoURL
         };
        if(email){
-           fetch(`http://localhost:5000/users/${email}`,{
+           fetch(`https://murmuring-retreat-70420.herokuapp.com/users/${email}`,{
                method: 'PUT',
                headers:{
                    'content-type':'application/json'

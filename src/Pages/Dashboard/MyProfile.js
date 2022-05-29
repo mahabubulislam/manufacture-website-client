@@ -9,7 +9,7 @@ import Loading from '../Shared/Loading';
 const MyProfile = () => {
     const [user, loading] = useAuthState(auth);
     const { register, handleSubmit, reset } = useForm();
-    // const { data, isLoading } = useQuery('my-profile', () => fetch(`http://localhost:5000/my-profile/${user?.email}`).then(res=>res.json()));
+    // const { data, isLoading } = useQuery('my-profile', () => fetch(`https://murmuring-retreat-70420.herokuapp.com/my-profile/${user?.email}`).then(res=>res.json()));
     if (loading) {
         return <Loading />
     }
@@ -32,7 +32,7 @@ const MyProfile = () => {
             village: data?.village,
             year: data?.year
         }
-        fetch(`http://localhost:5000/my-profile/${email}`, {
+        fetch(`https://murmuring-retreat-70420.herokuapp.com/my-profile/${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

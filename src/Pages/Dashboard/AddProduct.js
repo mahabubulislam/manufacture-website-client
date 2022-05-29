@@ -27,7 +27,7 @@ const AddProduct = () => {
                         minQuantity:data.minQuantity
                     }
                     // send to your database 
-                fetch('http://localhost:5000/parts', {
+                fetch('https://murmuring-retreat-70420.herokuapp.com/parts', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json',

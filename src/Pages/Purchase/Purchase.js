@@ -10,7 +10,7 @@ import Checkout from './Checkout';
 
 const Purchase = () => {
     const { id } = useParams();
-    const { data, isLoading } = useQuery('product', () => fetch(`http://localhost:5000/parts/${id}`).then(res => res.json()));
+    const { data, isLoading } = useQuery('product', () => fetch(`https://murmuring-retreat-70420.herokuapp.com/parts/${id}`).then(res => res.json()));
     const [user, loading] = useAuthState(auth)
     const [orderQuantity, setOrderQuantity] = useState(0)
     const { register, handleSubmit } = useForm();
@@ -35,7 +35,7 @@ const Purchase = () => {
             phone,
             address,
         }
-        fetch('http://localhost:5000/orders/', {
+        fetch('https://murmuring-retreat-70420.herokuapp.com/orders/', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

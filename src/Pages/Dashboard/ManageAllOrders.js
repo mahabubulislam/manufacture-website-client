@@ -5,7 +5,7 @@ import Loading from '../Shared/Loading';
 
 const ManageAllOrders = () => {
 
-    const { data: orders, isLoading } = useQuery('orders', () => fetch("http://localhost:5000/orders").then(res => res.json()));
+    const { data: orders, isLoading } = useQuery('orders', () => fetch("https://murmuring-retreat-70420.herokuapp.com/orders").then(res => res.json()));
     if (isLoading) {
         return <Loading />
     }
