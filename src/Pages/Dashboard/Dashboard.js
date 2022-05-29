@@ -33,7 +33,7 @@ const Dashboard = () => {
                             <p>{user?.email}</p>
                         </div>
                         <div className="divider"></div>
-                        <li className='rounded-md'><p><HiOutlineHome></HiOutlineHome> Dashboard</p></li>
+                        <li className='rounded-md hover:bg-base-300'><p><HiOutlineHome></HiOutlineHome> <Link to='/dashboard'>Dashboard</Link></p></li>
                         {
                             !admin && <>
                                 <li className='hover:bg-base-300 rounded-md'><Link to='my-orders'><HiOutlineShoppingBag></HiOutlineShoppingBag>My Orders</Link></li>

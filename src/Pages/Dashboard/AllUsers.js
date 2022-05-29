@@ -1,5 +1,4 @@
 import React from 'react';
-import { RiDeleteBin6Line } from 'react-icons/ri';
 import { useQuery } from 'react-query';
 import Loading from '../Shared/Loading';
 import UserRow from './UserRow';

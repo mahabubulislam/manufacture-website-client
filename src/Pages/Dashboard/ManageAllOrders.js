@@ -1,5 +1,4 @@
 import React from 'react';
-import { RiDeleteBin6Line } from 'react-icons/ri';
 import { useQuery } from 'react-query';
 import Loading from '../Shared/Loading';
 
@@ -24,7 +23,7 @@ const ManageAllOrders = () => {
                             <th>Price</th>
                             <th>Customer</th>
                             <th>Email</th>
-                            <th>Action</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -38,7 +37,7 @@ const ManageAllOrders = () => {
                                     <td>{order?.price}</td>
                                     <td>{order?.name}</td>
                                     <td>{order?.email}</td>
-                                    <td><button className='btn btn-xs btn-error text-center'><RiDeleteBin6Line className='mx-1' />Cancel</button></td>
+                                    <td><button className='btn btn-xs btn-success text-center'>Paid</button></td>
                                 </tr>)
                         }
                     </tbody>

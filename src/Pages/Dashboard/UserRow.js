@@ -2,6 +2,7 @@ import React from 'react';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import { toast } from 'react-toastify';
 
+
 const UserRow = ({ index, user, refetch }) => {
     const { name, email, img, role } = user
 
@@ -40,18 +41,19 @@ const UserRow = ({ index, user, refetch }) => {
                     toast("Something went wrong, Please Try again later.")
                 }
             })
+            
 
     }
     return (
 
         <tr>
             <th>{index + 1}</th>
-            <td>{user?.name}</td>
-            <td>{user?.email}</td>
-            <td><img className='rounded-full w-10 mask mask-hexagon' src={user?.img || 'https://api.lorem.space/image/face?hash=92310'} alt={user.product} /></td>
-            <td>{user?.role || 'Customer'}</td>
+            <td>{name}</td>
+            <td>{email}</td>
+            <td><img className='rounded-full w-10 mask mask-hexagon' src={img || 'https://api.lorem.space/image/face?hash=92310'} alt={user.product} /></td>
+            <td>{role || 'Customer'}</td>
             <td className='text-center'>
-                <button onClick={deleteUser} className='btn btn-xm'>Delete</button>
+                <button onClick={deleteUser} className='btn btn-xm'><RiDeleteBin6Line/> Delete</button>
                 <button onClick={makeAdmin} className='btn btn-xm'>Make Admin</button>
 
                 {/* <label htmlFor="admin-modal" className="btn btn-xs btn-success mr-2">Make Admin</label> */}
@@ -81,6 +83,7 @@ const UserRow = ({ index, user, refetch }) => {
                     </div>
                 </div>
             </td> */}
+            
         </tr>
 
 
