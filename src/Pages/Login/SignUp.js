@@ -11,13 +11,13 @@ import useToken from '../../hooks/useToken';
 const SignUp = () => {
     const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
     const [updateProfile, updating] = useUpdateProfile(auth);
-    const [token] = useToken(user)
-  
+
     const { register, handleSubmit } = useForm();
     const onSubmit = async data => {
         await createUserWithEmailAndPassword(data?.email, data?.password);
-        await updateProfile({displayName:data?.name})
+        await updateProfile({ displayName: data?.name });
     };
+    const [token] = useToken(user)
 
     if (loading || updating) {
         return <Loading />

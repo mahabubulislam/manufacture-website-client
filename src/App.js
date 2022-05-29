@@ -19,8 +19,8 @@ import Contact from "./Pages/Contact/Contact";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AddProduct from "./Pages/Dashboard/AddProduct";
-import MakeAdmin from "./Pages/Dashboard/MakeAdmin";
 import ManageAllOrders from "./Pages/Dashboard/ManageAllOrders";
+import AllUsers from "./Pages/Dashboard/AllUsers";
 
 function App() {
   return (
@@ -44,7 +44,7 @@ function App() {
           <Route path="add-review" element={<AddReview />}></Route>
           <Route path="add-products" element={<AddProduct />}></Route>
           <Route path="manage-orders" element={<ManageAllOrders />}></Route>
-          <Route path="all-users" element={<MakeAdmin />}></Route>
+          <Route path="all-users" element={<AllUsers />}></Route>
         </Route>
       </Routes>
       <ScrollToTop

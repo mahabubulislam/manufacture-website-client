@@ -8,9 +8,9 @@ import Loading from '../Shared/Loading';
 
 const MyProfile = () => {
     const [user, loading] = useAuthState(auth);
-    const { register, handleSubmit, reset , defaultValue} = useForm();
-    const { data, isLoading } = useQuery('my-profile', () => fetch(`http://localhost:5000/my-profile/${user?.email}`).then(res=>res.json()));
-    if (loading || isLoading) {
+    const { register, handleSubmit, reset } = useForm();
+    // const { data, isLoading } = useQuery('my-profile', () => fetch(`http://localhost:5000/my-profile/${user?.email}`).then(res=>res.json()));
+    if (loading) {
         return <Loading />
     }
     
@@ -50,7 +50,7 @@ const MyProfile = () => {
                 }
             })
     };
-    const { board, district, division, exam, institute, linkedin, phone, policeStation, result, subject, village, year, } = data
+    // const { board, district, division, exam, institute, linkedin, phone, policeStation, result, subject, village, year, } = data 
 
     return (
         <div>
@@ -81,27 +81,27 @@ const MyProfile = () => {
                                     <label class="label">
                                         <span class="label-text font-semibold">Exam/Degree Name</span>
                                     </label>
-                                    <input  type="text" {...register("exam", { required: true })} defaultValue={exam} class="input input-bordered w-full max-w-xs" placeholder='Exam name'/>
+                                    <input  type="text" {...register("exam", { required: true })} class="input input-bordered w-full max-w-xs" placeholder='Exam name'/>
                                     <label class="label">
                                         <span class="label-text font-semibold">Board</span>
                                     </label>
-                                    <input type="text" {...register("board", { required: true })} defaultValue={board} class="input input-bordered w-full max-w-xs" placeholder='Board Name'/>
+                                    <input type="text" {...register("board", { required: true })}  class="input input-bordered w-full max-w-xs" placeholder='Board Name'/>
                                     <label class="label">
                                         <span class="label-text font-semibold">Subject/Group</span>
                                     </label>
-                                    <input type="text" {...register("subject", { required: true })} defaultValue={subject} class="input input-bordered w-full max-w-xs" placeholder='Group/ Subject Name'/>
+                                    <input type="text" {...register("subject", { required: true })}  class="input input-bordered w-full max-w-xs" placeholder='Group/ Subject Name'/>
                                     <label class="label">
                                         <span class="label-text font-semibold">Insititute</span>
                                     </label>
-                                    <input type="text" {...register("institute", { required: true })} defaultValue={institute} class="input input-bordered w-full max-w-xs" placeholder='Institute name'/>
+                                    <input type="text" {...register("institute", { required: true })} class="input input-bordered w-full max-w-xs" placeholder='Institute name'/>
                                     <label class="label">
                                         <span class="label-text font-semibold">Year</span>
                                     </label>
-                                    <input type="text" {...register("year", { required: true })} defaultValue={year} class="input input-bordered w-full max-w-xs" placeholder='Passing Year'/>
+                                    <input type="text" {...register("year", { required: true })} class="input input-bordered w-full max-w-xs" placeholder='Passing Year'/>
                                     <label class="label">
                                         <span class="label-text font-semibold">Result</span>
                                     </label>
-                                    <input type="text" {...register("result", { required: true })} defaultValue={result} class="input input-bordered w-full max-w-xs" placeholder='GPA / CGPA'/>
+                                    <input type="text" {...register("result", { required: true })}  class="input input-bordered w-full max-w-xs" placeholder='GPA / CGPA'/>
                                 </div>
 
 
@@ -110,27 +110,27 @@ const MyProfile = () => {
                                     <label class="label">
                                         <span class="label-text font-semibold">Division</span>
                                     </label>
-                                    <input type="text" {...register("division", { required: true })} defaultValue={division} class="input input-bordered w-full max-w-xs" placeholder='Your Division'/>
+                                    <input type="text" {...register("division", { required: true })}  class="input input-bordered w-full max-w-xs" placeholder='Your Division'/>
                                     <label class="label">
                                         <span class="label-text font-semibold">District</span>
                                     </label>
-                                    <input type="text" {...register("district", { required: true })} defaultValue={district} class="input input-bordered w-full max-w-xs" placeholder='Your District'/>
+                                    <input type="text" {...register("district", { required: true })}  class="input input-bordered w-full max-w-xs" placeholder='Your District'/>
                                     <label class="label">
                                         <span class="label-text font-semibold">Police Station</span>
                                     </label>
-                                    <input type="text" {...register("policeStation", { required: true })} defaultValue={policeStation} class="input input-bordered w-full max-w-xs" placeholder='Your Police Station'/>
+                                    <input type="text" {...register("policeStation", { required: true })}  class="input input-bordered w-full max-w-xs" placeholder='Your Police Station'/>
                                     <label class="label">
                                         <span class="label-text font-semibold">Village</span>
                                     </label>
-                                    <input type="text" {...register("village", { required: true })} defaultValue={village} class="input input-bordered w-full max-w-xs" placeholder='Your Village'/>
+                                    <input type="text" {...register("village", { required: true })}  class="input input-bordered w-full max-w-xs" placeholder='Your Village'/>
                                     <label class="label">
                                         <span class="label-text font-semibold">Phone</span>
                                     </label>
-                                    <input type="text" {...register("phone", { required: true })} defaultValue={phone} class="input input-bordered w-full max-w-xs" placeholder='Your Phone Number'/>
+                                    <input type="text" {...register("phone", { required: true })}  class="input input-bordered w-full max-w-xs" placeholder='Your Phone Number'/>
                                     <label class="label">
                                         <span class="label-text font-semibold">Linkedin</span>
                                     </label>
-                                    <input type="text" {...register("linkedin", { required: true })} defaultValue={linkedin} class="input input-bordered w-full max-w-xs" placeholder='Your Linkedin Profle Link'/>
+                                    <input type="text" {...register("linkedin", { required: true })} class="input input-bordered w-full max-w-xs" placeholder='Your Linkedin Profle Link'/>
                                 </div>
                             </div>
                             <input className='btn btn-primary block mx-auto' type="submit" value="Update Profile" />

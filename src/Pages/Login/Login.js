@@ -9,15 +9,16 @@ import SocialLogin from './SocialLogin';
 const Login = () => {
     const { register, handleSubmit } = useForm();
     const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
-    const [token] = useToken(user)
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
-
+    
     const onSubmit = data => {
         signInWithEmailAndPassword(data?.email, data?.password);
-
+        
     };
+    
+    const [token] = useToken(user)
 
     if (loading) {
         return <Loading />
@@ -36,13 +37,13 @@ const Login = () => {
                         <label className="label">
                             <span className="label-text">Email</span>
                         </label>
-                        <input type="email"  {...register("email")} className="input input-bordered" required placeholder="Email"/>
+                        <input type="email"  {...register("email")} className="input input-bordered" required placeholder="Email" />
                     </div>
                     <div >
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input type="password"  {...register("password")} className="input input-bordered" required placeholder="Password"/>
+                        <input type="password"  {...register("password")} className="input input-bordered" required placeholder="Password" />
                         <label className="label">
                             <p className="label-text-alt cursor-pointer text-blue-600">Forgot password?</p>
                         </label>
