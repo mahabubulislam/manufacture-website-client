@@ -70,23 +70,35 @@ const CheckoutForm = ({ price, user, _id }) => {
             setCardError('');
             setTransactionId(paymentIntent.id);
             setSuccess('Congrats! Your payment is completed.')
-
+            setProcessing(false)
             //store payment on database
             const payment = {
                 order: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`http://localhost:5000/orders/payment/${_id}`, {
-                method: 'PATCH',
-                headers: {
-                    'content-type': 'application/json',
+            fetch(`http://localhost:5000/orders/${_id}`,{
+                method:'PATCH',
+                headers:{
+                    'content-type':'application/json'
                 },
                 body: JSON.stringify(payment)
-            }).then(res => res.json())
-                .then(data => {
-                    setProcessing(false);
-                    console.log(data);
-                })
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                console.log(data);
+            })
+            
+            // fetch(`http://localhost:5000/orders/payment/${_id}`, {
+            //     method: 'PATCH',
+            //     headers: {
+            //         'content-type': 'application/json',
+            //     },
+            //     body: JSON.stringify(payment)
+            // }).then(res => res.json())
+            //     .then(data => {
+            //         setProcessing(false);
+            //         console.log(data);
+            //     })
 
         }
 
@@ -112,6 +124,7 @@ const CheckoutForm = ({ price, user, _id }) => {
                 Pay
             </button>
         </form>
+        {processing && <small className='text-primary'>Please wait...</small>}
         {
             cardError && <p className='text-red-500'>{cardError}</p>
         }
