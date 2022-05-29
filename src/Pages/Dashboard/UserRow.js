@@ -5,7 +5,24 @@ import { toast } from 'react-toastify';
 const UserRow = ({ index, user, refetch }) => {
     const { name, email, img, role } = user
 
-    
+    const makeAdmin = () => {
+        fetch(`http://localhost:5000/users/admin/${email}`, {
+            method: 'PUT',
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    toast('Successfully Make Admin');
+                    refetch()
+                }
+                else {
+                    toast("Something went wrong, Please Try again later.")
+                }
+            })
+    }
     const deleteUser = () => {
         fetch(`http://localhost:5000/users/${email}`, {
             method: 'DELETE',
@@ -15,15 +32,15 @@ const UserRow = ({ index, user, refetch }) => {
         })
             .then(res => res.json())
             .then(data => {
-                if(data.deletedCount>0){
+                if (data.deletedCount > 0) {
                     toast('Successfully Delete User');
                     refetch()
                 }
-               else{
-                   toast("Something went wrong, Please Try again later.")
-               }
+                else {
+                    toast("Something went wrong, Please Try again later.")
+                }
             })
-           
+
     }
     return (
 
@@ -35,11 +52,12 @@ const UserRow = ({ index, user, refetch }) => {
             <td>{user?.role || 'Customer'}</td>
             <td className='text-center'>
                 <button onClick={deleteUser} className='btn btn-xm'>Delete</button>
-         
+                <button onClick={makeAdmin} className='btn btn-xm'>Make Admin</button>
+
                 {/* <label htmlFor="admin-modal" class="btn btn-xs btn-success mr-2">Make Admin</label> */}
                 {/* <label htmlFor="delete-modal" class="btn btn-xs btn-error ml-2"><RiDeleteBin6Line className='text-sm mx-2' /> Delete User</label> */}
             </td>
-            <td>
+            {/* <td>
                 <input type="checkbox" id="admin-modal" className="modal-toggle" />
                 <div className="modal modal-bottom sm:modal-middle">
                     <div className="modal-box">
@@ -62,7 +80,7 @@ const UserRow = ({ index, user, refetch }) => {
                         </div>
                     </div>
                 </div>
-            </td>
+            </td> */}
         </tr>
 
 
