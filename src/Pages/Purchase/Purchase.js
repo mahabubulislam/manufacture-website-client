@@ -20,12 +20,13 @@ const Purchase = () => {
     if (isLoading || loading) {
         return <Loading />
     }
-    const { name, description, img, price, quantity, minQuantity } = data;
+    const { _id, name, description, img, price, quantity, minQuantity } = data;
     const totalPrice = price * orderQuantity
     const onSubmit = data => {
         const phone = data?.phone;
         const address = data.address;
         const orders = {
+            id: _id,
             product: name,
             img: img,
             name: user?.displayName,
@@ -109,7 +110,7 @@ const Purchase = () => {
             </div>
 
             <div>
-                
+
             </div>
         </section>
     );

@@ -44,7 +44,7 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end">
                     {
-                        user && <Link className='btn btn-primary mr-10 sm:hidden lg:block p-4' to='/dashboard'>Dashboard</Link>
+                        user && <Link className='btn btn-primary mr-10 hidden lg:block p-4' to='/dashboard'>Dashboard</Link>
                     }
                     {
                         !user && <Link className='mr-3 lg:mr-10 btn btn-primary' to='/login'>Login</Link>

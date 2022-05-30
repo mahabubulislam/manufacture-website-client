@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
+import { toast } from 'react-toastify';
 
 
 const CheckoutForm = ({ price, user, _id }) => {
@@ -76,7 +77,7 @@ const CheckoutForm = ({ price, user, _id }) => {
                 order: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`https://murmuring-retreat-70420.herokuapp.com/orders/${_id}`,{
+            fetch(`http://localhost:5000/orders/payment/${_id}`,{
                 method:'PATCH',
                 headers:{
                     'content-type':'application/json'
@@ -85,21 +86,10 @@ const CheckoutForm = ({ price, user, _id }) => {
             })
             .then(res=>res.json())
             .then(data=>{
-                console.log(data);
+                if(data.modifiedCount>0){
+                    toast("Your Order is Confirmed")
+                }
             })
-            
-            // fetch(`https://murmuring-retreat-70420.herokuapp.com/orders/payment/${_id}`, {
-            //     method: 'PATCH',
-            //     headers: {
-            //         'content-type': 'application/json',
-            //     },
-            //     body: JSON.stringify(payment)
-            // }).then(res => res.json())
-            //     .then(data => {
-            //         setProcessing(false);
-            //         console.log(data);
-            //     })
-
         }
 
     };
