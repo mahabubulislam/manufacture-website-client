@@ -3,7 +3,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
-import OrderRow from './OrderRow';
+import MyOrderRow from './MyOrderRow';
 
 
 
@@ -39,7 +39,7 @@ const MyOrders = () => {
                     </thead>
                     <tbody>
                         {
-                           orders?.map((order,index)=><OrderRow key={order._id} order={order} index={index} refetch={refetch}></OrderRow>)    
+                           orders?.map((order,index)=><MyOrderRow key={order._id} order={order} index={index} refetch={refetch}></MyOrderRow>)    
                         }
                     </tbody>
                 </table>

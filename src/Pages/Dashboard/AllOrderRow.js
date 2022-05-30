@@ -1,12 +1,11 @@
 import React from 'react';
-import { RiDeleteBin6Line } from 'react-icons/ri';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import { toast } from 'react-toastify';
-import { Link } from 'react-router-dom';
 
-const OrderRow = ({ order, index, refetch }) => {
-    const { _id, product, quantity, price, paid } = order;
+
+const AllOrderRow = ({ order, index, refetch }) => {
+    const { _id, product, img, quantity, price, name, email, paid } = order;
     const CancelSwal = withReactContent(Swal);
 
     const cancelOrder = () => {
@@ -47,10 +46,14 @@ const OrderRow = ({ order, index, refetch }) => {
             <td><img className='rounded-lg w-8' src={order?.img} alt={order.product} /></td>
             <td>{quantity}</td>
             <td>{price}</td>
-            <td>{paid ? <span className='bg-primary uppercase font-semibold rounded-md text-center p-1'>Paid</span> : <Link to={`/purchase`} className='btn btn-xs btn-warning'>Pay</Link>}</td>
-            <td>{!paid && <button onClick={cancelOrder} className='btn btn-xs btn-error'>Cancel</button>}</td>
+            <td>{name}</td>
+            <td>{email}</td>
+            <td>{paid ?
+                <span className='bg-primary uppercase font-semibold rounded-md text-center  px-5'>Paid</span>
+                :
+                <button onClick={cancelOrder} className='btn btn-xs btn-error'>Cancel</button>}</td>
         </tr>
     );
 };
 
-export default OrderRow;
+export default AllOrderRow;

@@ -1,10 +1,11 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../Shared/Loading';
+import AllOrderRow from './AllOrderRow';
 
 const ManageAllOrders = () => {
 
-    const { data: orders, isLoading } = useQuery('orders', () => fetch("https://murmuring-retreat-70420.herokuapp.com/orders").then(res => res.json()));
+    const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch("https://murmuring-retreat-70420.herokuapp.com/orders").then(res => res.json()));
     if (isLoading) {
         return <Loading />
     }
@@ -28,17 +29,7 @@ const ManageAllOrders = () => {
                     </thead>
                     <tbody>
                         {
-                            orders?.map((order, index) =>
-                                <tr className='text-left' key={index}>
-                                    <th>{index + 1}</th>
-                                    <td>{order?.product}</td>
-                                    <td><img className='rounded-lg w-8' src={order?.img} alt={order.product} /></td>
-                                    <td>{order?.quantity}</td>
-                                    <td>{order?.price}</td>
-                                    <td>{order?.name}</td>
-                                    <td>{order?.email}</td>
-                                    <td><button className='btn btn-xs btn-success text-center'>Paid</button></td>
-                                </tr>)
+                            orders?.map((order, index) =><AllOrderRow order={order} key={order._id} index={index} refetch={refetch}/>)
                         }
                     </tbody>
                 </table>

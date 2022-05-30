@@ -77,7 +77,7 @@ const CheckoutForm = ({ price, user, _id }) => {
                 order: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`http://localhost:5000/orders/payment/${_id}`,{
+            fetch(`https://murmuring-retreat-70420.herokuapp.com/orders/payment/${_id}`,{
                 method:'PATCH',
                 headers:{
                     'content-type':'application/json'
