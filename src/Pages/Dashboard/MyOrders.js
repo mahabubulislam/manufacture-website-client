@@ -35,7 +35,7 @@ const MyOrders = () => {
         }).then((result) => {
 
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/orders/${id}`, {
+                fetch(`https://murmuring-retreat-70420.herokuapp.com/orders/${id}`, {
                     method: 'DELETE',
                     headers: {
                         'content-type': 'application/json'

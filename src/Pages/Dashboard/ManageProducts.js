@@ -18,7 +18,7 @@ const ManageProducts = () => {
             confirmButtonText: 'Yes',
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/parts/${id}`, {
+                fetch(`https://murmuring-retreat-70420.herokuapp.com/parts/${id}`, {
                     method: 'DELETE',
                     headers: {
                         'content-type': 'application/json'
