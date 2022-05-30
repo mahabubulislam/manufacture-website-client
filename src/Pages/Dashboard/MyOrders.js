@@ -23,13 +23,13 @@ const MyOrders = () => {
     if (loading || isLoading) {
         return <Loading />
     }
-    const MySwal = withReactContent(Swal);
+    const CancelSwal = withReactContent(Swal);
 
     const cancelOrder = (id) => {
 
-        MySwal.fire({
-            icon: 'success',
-            title: 'Do you sure want to cancel?',
+        CancelSwal.fire({
+            icon: 'error',
+            title: 'Do you sure want to cancel this order?',
             showCancelButton: true,
             confirmButtonText: 'Yes',
         }).then((result) => {

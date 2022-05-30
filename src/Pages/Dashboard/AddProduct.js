@@ -21,10 +21,10 @@ const AddProduct = () => {
                     const part = {
                         name:data.name,
                         description:data.description,
-                        price:data.price,
+                        price:parseFloat(data.price),
                         img:img,
-                        quantity:data.quantity,
-                        minQuantity:data.minQuantity
+                        quantity:parseFloat(data.quantity),
+                        minQuantity:parseFloat(data.minQuantity)
                     }
                     // send to your database 
                 fetch('https://murmuring-retreat-70420.herokuapp.com/parts', {
@@ -56,9 +56,9 @@ const AddProduct = () => {
                     <input className='input input-bordered mb-2' {...register("name", { required: true })} placeholder='Products name' required />
                     <textarea className='textarea textarea-bordered mb-2' {...register("description", { required: true })} placeholder='Description' required />
                     <input className=' border-2 rounded-md mb-2' {...register("image", { required: true })} type="file" />
-                    <input className='input input-bordered mb-2'{...register("price", { required: true })} type="number" placeholder='Price' required />
-                    <input className='input input-bordered mb-2' {...register("quantity", { required: true })} type="number" placeholder='Quantity' required />
-                    <input className='input input-bordered mb-2' {...register("minQuantity", { required: true })} type="number" placeholder='Minimum Quantity' required />
+                    <input min='1' className='input input-bordered mb-2'{...register("price", { required: true })} type="number" placeholder='Price' required />
+                    <input min='1' className='input input-bordered mb-2' {...register("quantity", { required: true })} type="number" placeholder='Quantity' required />
+                    <input min='1' className='input input-bordered mb-2' {...register("minQuantity", { required: true })} type="number" placeholder='Minimum Quantity' required />
                     <input className='btn btn-primary w-1/2 mx-auto' type="submit" value="Add Item" />
                 </form>
             </div>
