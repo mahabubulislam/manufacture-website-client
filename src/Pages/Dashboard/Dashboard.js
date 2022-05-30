@@ -44,6 +44,7 @@ const Dashboard = () => {
                         {
                             admin && <>
                                 <li className='hover:bg-base-300 rounded-md'><Link to='add-products'><IoAddCircle></IoAddCircle>Add Products</Link></li>
+                                <li className='hover:bg-base-300 rounded-md'><Link to='manage-products'><HiOutlineShoppingBag></HiOutlineShoppingBag>Manage Products</Link></li>
                                 <li className='hover:bg-base-300 rounded-md'><Link to='manage-orders'><HiOutlineShoppingBag></HiOutlineShoppingBag>Manage Orders</Link></li>
                                 <li className='hover:bg-base-300 rounded-md'><Link to='all-users'><IoPersonAddSharp></IoPersonAddSharp>All Users</Link></li>
                             </>
