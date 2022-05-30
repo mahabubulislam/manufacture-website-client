@@ -26,6 +26,7 @@ import useAdmin from "./hooks/useAdmin";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "./firebase.init";
 import AdminPanel from "./Pages/Dashboard/AdminPanel";
+import NotFound from "./Pages/NotFound/NotFound";
 
 function App() {
   const [user] = useAuthState(auth)
@@ -53,6 +54,7 @@ function App() {
           <Route path="manage-orders" element={<RequireAdmin><ManageAllOrders /></RequireAdmin>}></Route>
           <Route path="all-users" element={<RequireAdmin><AllUsers /></RequireAdmin>}></Route>
         </Route>
+        <Route path='*' element={<NotFound/>}></Route>
       </Routes>
       <ScrollToTop
         smooth
